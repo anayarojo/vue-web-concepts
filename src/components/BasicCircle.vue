@@ -1,12 +1,15 @@
 <template>
-	<basic-shape :level="level" :customStyle="computedStyle">
+	<!--eslint-disable-next-line prettier/prettier-->
+	<basic-shape :level="level" :color="color" :customClass="computedClass" :customStyle="computedStyle">
 		<slot></slot>
 	</basic-shape>
 </template>
 
 <script>
-import BasicShape from '@/components/BasicShape';
 import Utilities from '@/shared/utilities';
+import Defaults from '@/shared/defaults';
+import Validators from '@/shared/validators';
+import BasicShape from '@/components/BasicShape';
 
 export default {
 	name: 'BasicCircle',
@@ -16,43 +19,46 @@ export default {
 	props: {
 		level: {
 			type: Number,
-			validator: function(value) {
-				return value <= 5;
-			},
+			validator: Validators.validLevel,
+		},
+		color: {
+			type: String,
+			validator: Validators.validColor,
 		},
 		size: {
 			type: String,
-			validator: function(value) {
-				return ['xs', 'sm', 'md', 'lg', 'xl', 'custom'].indexOf(value) !== -1;
-			},
+			validator: Validators.validSize,
+		},
+		customClass: {
+			type: String,
+			default: '',
 		},
 		customStyle: {
 			type: Object,
-			default: function() {
-				return {};
-			},
+			default: Defaults.defaultObject,
 		},
-		height: String,
-		width: String,
+		width: {
+			type: Number,
+			default: 0,
+		},
+		height: {
+			type: Number,
+			default: 0,
+		},
 	},
 	computed: {
-		computedStyle() {
-			let props = {};
-			if (this.size === 'custom') {
-				props = {
-					height: !this.height ? '8px' : this.height,
-					width: !this.width ? '8px' : this.width,
-				};
-			} else {
-				const size = Utilities.getSize(this.size);
-				props = {
-					height: size,
-					width: size,
-				};
+		computedClass() {
+			if (this.size !== 'custom') {
+				const sizeClass = Utilities.getSizeClass(this.size);
+				return `rounded-full w-${sizeClass} h-${sizeClass} ${this.customClass}`;
 			}
-			props.borderRadius = '50%';
-			props = Object.assign(this.customStyle, props);
-			return props;
+			return `${this.customClass} rounded-full`;
+		},
+		computedStyle() {
+			const style = {};
+			if (this.width > 0) style.width = `${this.width}PX`;
+			if (this.height > 0) style.height = `${this.height}px`;
+			return Object.assign(this.customStyle, style);
 		},
 	},
 };

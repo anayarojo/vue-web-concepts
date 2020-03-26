@@ -1,10 +1,16 @@
 <template>
-	<basic-shape :level="level" :customStyle="computedStyle"></basic-shape>
+	<basic-shape
+		:level="0"
+		:customClass="computedClass"
+		:customStyle="computedStyle"
+	></basic-shape>
 </template>
 
 <script>
-import BasicShape from '@/components/BasicShape';
 import Utilities from '@/shared/utilities';
+import Defaults from '@/shared/defaults';
+import Validators from '@/shared/validators';
+import BasicShape from '@/components/BasicShape';
 
 export default {
 	name: 'BasicTriangle',
@@ -14,50 +20,56 @@ export default {
 	props: {
 		level: {
 			type: Number,
-			validator: function(value) {
-				return value <= 5;
-			},
+			validator: Validators.validLevel,
+		},
+		color: {
+			type: String,
+			validator: Validators.validColor,
 		},
 		size: {
 			type: String,
-			validator: function(value) {
-				return ['xs', 'sm', 'md', 'lg', 'xl', 'custom'].indexOf(value) !== -1;
-			},
+			validator: Validators.validSize,
+		},
+		customClass: {
+			type: String,
+			default: '',
 		},
 		customStyle: {
 			type: Object,
-			default: function() {
-				return {};
-			},
+			default: Defaults.defaultObject,
 		},
-		height: String,
-		width: String,
+		width: {
+			type: Number,
+			default: 0,
+		},
+		height: {
+			type: Number,
+			default: 0,
+		},
 	},
 	computed: {
+		computedClass() {
+			const borderColorClass = Utilities.getBorderColorClass(
+				this.level,
+				this.color
+			);
+			return `${this.customClass} bg-transparent ${borderColorClass}`;
+		},
 		computedStyle() {
-			let props = Object.assign(this.customStyle, {
-				width: 0,
-				height: 0,
-				backgroundColor: 'transparent',
-			});
-			if (this.size === 'custom') {
-				const width = !this.width ? '8px' : this.width;
-				props = {
-					borderLeft: `calc(${width}/2) solid transparent`,
-					borderRight: `calc(${width}/2) solid transparent`,
-					borderBottom: `${!this.height ? '8px' : this.height}`,
-				};
-			} else {
-				const size = Utilities.getSize(this.size);
-				props = {
-					borderLeft: `calc(${size}/2) solid transparent`,
-					borderRight: `calc(${size}/2) solid transparent`,
-					borderBottomWidth: `${size}`,
-					borderBottomStyle: 'solid',
-				};
-			}
-			props = Object.assign(this.customStyle, props);
-			return props;
+			const style = {};
+			const size = Utilities.getSize(this.size);
+			const sizeX = this.size !== 'custom' ? size / 2 : this.width / 2;
+			const sizeY = this.size !== 'custom' ? size : this.height;
+
+			style.width = `${sizeX}px`;
+			style.height = `${sizeX}px`;
+			style.borderLeft = `${sizeX}px solid transparent !important`;
+			style.borderLeft = `${sizeX}px solid transparent !important`;
+			style.borderRight = `${sizeX}px solid transparent !important`;
+			style.borderBottomWidth = `${sizeY}px`;
+			style.borderBottomStyle = 'solid';
+
+			return Object.assign(this.customStyle, style);
 		},
 	},
 };

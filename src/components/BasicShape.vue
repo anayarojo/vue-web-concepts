@@ -5,60 +5,38 @@
 </template>
 
 <script>
+import Defaults from '@/shared/defaults';
+import Validators from '@/shared/validators';
+import Utilities from '@/shared/utilities';
+
 export default {
 	name: 'BasicShape',
 	props: {
 		level: {
 			type: Number,
-			validator: function(value) {
-				return value <= 5;
-			},
+			validator: Validators.validLevel,
+		},
+		color: {
+			type: String,
+			validator: Validators.validColor,
+		},
+		customClass: {
+			type: String,
+			default: '',
 		},
 		customStyle: {
 			type: Object,
-			default: function() {
-				return {};
-			},
+			default: Defaults.defaultObject,
 		},
 	},
 	computed: {
 		computedClass() {
-			return `shape-level-${this.level}`;
+			const backgroundColorClass = Utilities.getBackgroundColorClass(
+				this.level,
+				this.color
+			);
+			return `${this.customClass} ${backgroundColorClass}`;
 		},
 	},
 };
 </script>
-
-<style lang="scss" scoped>
-.shape {
-	display: block;
-	&.shape-level--1 {
-		background-color: transparent;
-		border-bottom-color: transparent;
-	}
-	&.shape-level-0 {
-		background-color: darken(#fff, 0);
-		border-bottom-color: darken(#fff, 0);
-	}
-	&.shape-level-1 {
-		background-color: darken(#fff, 10%);
-		border-bottom-color: darken(#fff, 10);
-	}
-	&.shape-level-2 {
-		background-color: darken(#fff, 20%);
-		border-bottom-color: darken(#fff, 20);
-	}
-	&.shape-level-3 {
-		background-color: darken(#fff, 30%);
-		border-bottom-color: darken(#fff, 30);
-	}
-	&.shape-level-4 {
-		background-color: darken(#fff, 40%);
-		border-bottom-color: darken(#fff, 40);
-	}
-	&.shape-level-5 {
-		background-color: darken(#fff, 50%);
-		border-bottom-color: darken(#fff, 50);
-	}
-}
-</style>

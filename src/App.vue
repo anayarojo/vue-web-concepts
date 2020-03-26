@@ -1,60 +1,36 @@
 <template>
 	<div id="app">
-		<basic-box :level="4" size="custom" width="100%" height="512px">
-			<basic-box :level="5" size="custom" width="100%" height="64px">
+		<control-hero>
+			<control-navbar />
+			<!--eslint-disable-next-line prettier/prettier-->
+			<control-container customClass="hero-content flex flex-col w-9/12 h-auto mx-auto pt-8">
 				<!--eslint-disable-next-line prettier/prettier-->
-				<basic-box :level="5" size="custom" width="90%" height="auto" :customStyle="navbarStyle">
-					<basic-circle :level="2" size="md"></basic-circle>
-					<basic-box
-						:level="2"
-						size="custom"
-						width="124px"
-						height="32px"
-					></basic-box>
-				</basic-box>
-			</basic-box>
-		</basic-box>
+				<web-text :level="2" color="gray" weight="md" size="xs" customClass="mb-4"></web-text>
+				<web-text :level="4" color="gray" weight="sm" size="lg"></web-text>
+			</control-container>
+		</control-hero>
 		<!--eslint-disable-next-line prettier/prettier-->
-		<basic-box :level="0" size="custom" width="90%" height="auto" :customStyle="containerStyle">
-			<basic-box :level="1" size="lg"></basic-box>
-			<basic-box :level="1" size="lg"></basic-box>
-			<basic-box :level="1" size="lg"></basic-box>
+		<basic-box :level="0" color="white" size="custom" customClass="main-container rounded-md w-9/12 h-auto min-h-3/4 mx-auto -mt-16 mb-16  p-6">
+			<router-view />
 		</basic-box>
-		<router-view />
-		<!-- <div id="nav">
-			<router-link to="/">Home</router-link>
-			|
-			<router-link to="/about">About</router-link>
-		</div> -->
-		<router-view />
 	</div>
 </template>
 
 <script>
-import BasicCircle from '@/components/BasicCircle.vue';
 import BasicBox from '@/components/BasicBox.vue';
+import ControlHero from '@/components/ControlHero.vue';
+import ControlNavbar from '@/components/ControlNavbar.vue';
+import ControlContainer from '@/components/ControlContainer.vue';
+import WebText from '@/components/WebText.vue';
 
 export default {
 	name: 'app',
 	components: {
 		BasicBox,
-		BasicCircle,
-	},
-	computed: {
-		containerStyle() {
-			return {
-				margin: '-64px auto',
-				minHeight: '512px',
-				overflow: 'hidden',
-				padding: '16px',
-			};
-		},
-		navbarStyle() {
-			return {
-				margin: '0 auto',
-				padding: '16px',
-			};
-		},
+		ControlHero,
+		ControlNavbar,
+		ControlContainer,
+		WebText,
 	},
 };
 </script>
@@ -64,5 +40,11 @@ body {
 	padding: 0;
 	margin: auto;
 	background-color: #f1f1f1;
+}
+#app {
+	font-family: 'Avenir', Helvetica, Arial, sans-serif;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	text-align: center;
 }
 </style>
