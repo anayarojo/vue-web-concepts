@@ -32,6 +32,9 @@ export default {
 		ControlContainer,
 		WebText,
 	},
+	created() {
+		document.title = 'Vue Web Concepts';
+	},
 };
 </script>
 

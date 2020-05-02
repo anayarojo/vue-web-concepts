@@ -3,9 +3,9 @@
 		<!--eslint-disable-next-line prettier/prettier-->
 		<web-text :level="4" color="gray" weight="md" size="xs" customClass="mb-6"></web-text>
 		<!--eslint-disable-next-line prettier/prettier-->
-		<div class="grid xs:grid-cols-1 lg:grid-cols-3 grid-rows-5 gap-6 mb-4">
+		<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
 			<!--eslint-disable-next-line prettier/prettier-->
-			<basic-box :level="2" color="gray" size="custom" customClass="w-full h-full p-4 mb-2">
+			<basic-box :level="2" color="gray" size="custom" customClass="w-full h-full p-4">
 				<!--eslint-disable-next-line prettier/prettier-->
 				<web-text :level="4" color="gray" weight="sm" size="sm" customClass="mb-6"></web-text>
 				<basic-circle
@@ -23,7 +23,7 @@
 				></web-text>
 			</basic-box>
 			<!--eslint-disable-next-line prettier/prettier-->
-			<basic-box :level="2" color="gray" size="custom" customClass="w-full h-full p-4 mb-2">
+			<basic-box :level="2" color="gray" size="custom" customClass="w-full h-full p-4">
 				<!--eslint-disable-next-line prettier/prettier-->
 				<web-text :level="4" color="gray" weight="sm" size="sm" customClass="mb-6"></web-text>
 				<basic-box
@@ -41,7 +41,7 @@
 				></web-text>
 			</basic-box>
 			<!--eslint-disable-next-line prettier/prettier-->
-			<basic-box :level="2" color="gray" size="custom" customClass="w-full h-full p-4 mb-2">
+			<basic-box :level="2" color="gray" size="custom" customClass="w-full h-full p-4">
 				<!--eslint-disable-next-line prettier/prettier-->
 				<web-text :level="4" color="gray" weight="sm" size="sm" customClass="mb-6"></web-text>
 				<basic-triangle
@@ -59,7 +59,7 @@
 				></web-text>
 			</basic-box>
 			<!--eslint-disable-next-line prettier/prettier-->
-			<basic-box :level="2" color="gray" size="custom" customClass="w-full h-full p-4 mb-2">
+			<basic-box :level="2" color="gray" size="custom" customClass="w-full h-full p-4">
 				<!--eslint-disable-next-line prettier/prettier-->
 				<web-text :level="4" color="gray" weight="sm" size="sm" customClass="mb-6"></web-text>
 				<basic-triangle
@@ -77,7 +77,7 @@
 				></web-text>
 			</basic-box>
 			<!--eslint-disable-next-line prettier/prettier-->
-			<basic-box :level="2" color="gray" size="custom" customClass="w-full h-full p-4 mb-2">
+			<basic-box :level="2" color="gray" size="custom" customClass="w-full h-full p-4">
 				<!--eslint-disable-next-line prettier/prettier-->
 				<web-text :level="4" color="gray" weight="sm" size="sm" customClass="mb-6"></web-text>
 				<basic-circle
@@ -95,7 +95,7 @@
 				></web-text>
 			</basic-box>
 			<!--eslint-disable-next-line prettier/prettier-->
-			<basic-box :level="2" color="gray" size="custom" customClass="w-full h-full p-4 mb-2">
+			<basic-box :level="2" color="gray" size="custom" customClass="w-full h-full p-4">
 				<!--eslint-disable-next-line prettier/prettier-->
 				<web-text :level="4" color="gray" weight="sm" size="sm" customClass="mb-6"></web-text>
 				<basic-box
@@ -113,7 +113,7 @@
 				></web-text>
 			</basic-box>
 			<!--eslint-disable-next-line prettier/prettier-->
-			<basic-box :level="2" color="gray" size="custom" customClass="w-full h-full p-4 mb-2">
+			<basic-box :level="2" color="gray" size="custom" customClass="md:col-span-2 w-full h-full p-4">
 				<!--eslint-disable-next-line prettier/prettier-->
 				<web-text :level="4" color="gray" weight="sm" size="sm" customClass="mb-6"></web-text>
 				<web-text
@@ -146,11 +146,11 @@
 				></web-text>
 			</basic-box>
 			<!--eslint-disable-next-line prettier/prettier-->
-			<basic-box :level="2" color="gray" size="custom" customClass="col-span-2 w-full h-full p-4 mb-2">
+			<basic-box :level="2" color="gray" size="custom" customClass="md:col-span-2 lg:col-span-1 w-full h-full p-4">
 				<!--eslint-disable-next-line prettier/prettier-->
 				<web-text :level="4" color="gray" weight="sm" size="sm" customClass="mb-6"></web-text>
 				<!--eslint-disable-next-line prettier/prettier-->
-				<basic-container customClass="flex flex-rows items-center justify-center w-full h-auto mb-4">
+				<basic-container customClass="flex flex-rows items-center justify-center w-full h-auto">
 					<basic-triangle
 						:level="2"
 						color="blue"
@@ -179,7 +179,7 @@
 				></web-text>
 			</basic-box>
 			<!--eslint-disable-next-line prettier/prettier-->
-			<basic-box :level="2" color="gray" size="custom" customClass="row-span-2 w-full h-full p-4 mb-2">
+			<basic-box :level="2" color="gray" size="custom" customClass="md:row-span-2 md:col-span-2 w-full h-full p-4">
 				<!--eslint-disable-next-line prettier/prettier-->
 				<web-text :level="4" color="gray" weight="sm" size="sm" customClass="mb-6"></web-text>
 				<web-text
@@ -268,7 +268,7 @@
 				></web-text>
 			</basic-box>
 			<!--eslint-disable-next-line prettier/prettier-->
-			<basic-box :level="2" color="gray" size="custom" customClass="col-span-2 w-full h-full p-4 mb-2">
+			<basic-box :level="2" color="gray" size="custom" customClass="md:col-span-2 lg:col-span-1 w-full h-full p-4">
 				<!--eslint-disable-next-line prettier/prettier-->
 				<web-text :level="4" color="gray" weight="sm" size="sm" customClass="mb-6"></web-text>
 				<basic-circle
@@ -286,7 +286,7 @@
 				></web-text>
 			</basic-box>
 			<!--eslint-disable-next-line prettier/prettier-->
-			<basic-box :level="2" color="gray" size="custom" customClass="col-span-2 w-full h-full p-4 mb-2">
+			<basic-box :level="2" color="gray" size="custom" customClass="md:col-span-2 lg:col-span-1 w-full h-full p-4">
 				<!--eslint-disable-next-line prettier/prettier-->
 				<web-text :level="4" color="gray" weight="sm" size="sm" customClass="mb-6"></web-text>
 				<basic-triangle
@@ -304,7 +304,7 @@
 				></web-text>
 			</basic-box>
 			<!--eslint-disable-next-line prettier/prettier-->
-			<basic-box :level="2" color="gray" size="custom" customClass="w-full h-full p-4 mb-2" >
+			<basic-box :level="2" color="gray" size="custom" customClass="md:col-span-2 lg:col-span-1 w-full h-full p-4" >
 				<!--eslint-disable-next-line prettier/prettier-->
 				<web-text :level="4" color="gray" weight="sm" size="sm" customClass="mb-16"></web-text>
 				<basic-box
@@ -322,7 +322,7 @@
 				></web-text>
 			</basic-box>
 			<!--eslint-disable-next-line prettier/prettier-->
-			<basic-box :level="2" color="gray" size="custom" customClass="col-span-2 w-full h-full p-4 mb-2" >
+			<basic-box :level="2" color="gray" size="custom" customClass="md:col-span-2 w-full h-full p-4" >
 				<!--eslint-disable-next-line prettier/prettier-->
 				<web-text :level="4" color="gray" weight="sm" size="sm" customClass="mb-6"></web-text>
 				<web-text
